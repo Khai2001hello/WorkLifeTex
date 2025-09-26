@@ -96,3 +96,79 @@ const calculator = {
 };
 console.log(calculator.square(3)); // 9
 console.log(calculator.cube(2));   // 8
+
+
+let helo = [1, 2, 3];
+helo.forEach(num => console.log(num));
+
+const arri = [1, 2, 3];
+let arro = [];
+for(let i = 0; i < arri.length; i++){
+  arro.push( arri[i] * arri[i] );
+
+};
+console.log(arro);  
+
+//====== Work 2======
+//   1. Viết chương trình quản lý danh sách người dùng:
+
+// - Mỗi người dùng là một object
+// - Danh sách là một array
+const ListPerson = [
+  {
+  name: "Khai",  
+  email: "khaita@gmail.com",
+  age: 25,
+  phone: "0123456789"  
+},
+   {
+  name: "Viet",  
+  email: "vietph@gmail.com",
+  age: 25,
+  phone: "0123456788"  
+},
+ {
+  name: "Son",  
+  email: "sonpp@gmail.com",
+  age: 25,
+  phone: "0123456786"   
+}
+]
+  ListPerson.forEach(u => console.log(u)); 
+
+// - Có chức năng thêm, xóa, tìm kiếm theo tên/email
+function addUser(list, user) {
+  if (!user?.email) throw new Error("Thiếu email.");
+  const dup = list.some(u => u.email.toLowerCase() === user.email.toLowerCase());
+  if (dup) throw new Error("Email đã tồn tại.");
+  list.push({ ...user, name: capitalize(user.name ?? "") }); // chuẩn hoá tên khi thêm
+  return list[list.length - 1];
+}
+function removeUserByEmail(list, email) {
+  const i = list.findIndex(u => u.email.toLowerCase() === String(email).toLowerCase());
+  if (i === -1) return false;
+  list.splice(i, 1);
+  return true;
+}
+function searchUsers(list, keyword) {
+  const k = String(keyword).trim().toLowerCase();
+  if (!k) return [];
+  return list.filter(u =>
+    u.name.toLowerCase().includes(k) || u.email.toLowerCase().includes(k)
+  );
+}
+// - Format tên người dùng khi hiển thị (viết hoa chữ cái đầu)
+
+
+// 2. Viết hàm phân tích một đoạn văn:
+
+// - Tách từ, đếm số lần xuất hiện mỗi từ
+
+// - Trả về object `{từ: số lần}`
+
+
+// 3. Viết hàm xử lý dữ liệu đơn hàng:
+
+// - Mỗi đơn hàng là object (id, sản phẩm, số lượng, giá)
+
+// - Tính tổng tiền, lọc đơn hàng theo sản phẩm, sắp xếp theo giá
