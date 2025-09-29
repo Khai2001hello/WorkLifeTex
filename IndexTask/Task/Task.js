@@ -46,7 +46,7 @@ function wordCount(text) {
   return res;
 }
 
-
+``
 // 3) XỬ LÝ DỮ LIỆU ĐƠN HÀNG 
 // – Mỗi đơn hàng: {id, product, qty, price}
 const orders = [

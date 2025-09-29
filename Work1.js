@@ -157,18 +157,4 @@ function searchUsers(list, keyword) {
     u.name.toLowerCase().includes(k) || u.email.toLowerCase().includes(k)
   );
 }
-// - Format tên người dùng khi hiển thị (viết hoa chữ cái đầu)
-
-
-// 2. Viết hàm phân tích một đoạn văn:
-
-// - Tách từ, đếm số lần xuất hiện mỗi từ
-
-// - Trả về object `{từ: số lần}`
-
-
-// 3. Viết hàm xử lý dữ liệu đơn hàng:
-
-// - Mỗi đơn hàng là object (id, sản phẩm, số lượng, giá)
-
-// - Tính tổng tiền, lọc đơn hàng theo sản phẩm, sắp xếp theo giá
+// bt dom
