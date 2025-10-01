@@ -80,3 +80,4 @@ window.totalAmount = totalAmount;
 window.addItem = addItem;
 window.removeItemById = removeItemById;
 window.displayCart = displayCart;
+    
