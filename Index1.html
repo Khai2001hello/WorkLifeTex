@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <title>User Module (2 files, no import/export)</title>
+</head>
+<body>
+  <h1>User Module Demo</h1>
+  <p>Mở DevTools (F12) → tab <b>Console</b> để xem log.</p>
+
+  <!-- Nạp file JS trước để tạo các hàm/global -->
+  <script src="./task3.js"></script>
+
+  <!-- Gọi hàm: tất cả ở global (window.*) -->
+  <script>
+    console.log("Seed ban đầu từ person:", listUsers());
+
+    const u = addUser({ name: "Le Van C", age: 20, email: "c@example.com" });
+    console.log("Sau khi add:", listUsers());
+
+    console.log("Tìm c@example.com:", getUserByEmail("C@EXAMPLE.COM"));
+
+    console.log("Xoá theo id:", deleteUser(u.id));
+    console.log("Danh sách (for...of):", listUsers("forof"));
+
+    saveToServerCallback(person[0], (err, res) =>
+      err ? console.error("Callback lỗi:", err.message) : console.log("Callback OK:", res)
+    );
+
+    saveToServerPromise(person[0])
+      .then(res => console.log("Promise OK:", res))
+      .catch(err => console.error("Promise lỗi:", err.message));
+
+    (async () => {
+      try {
+        const res = await saveToServer(person[0]);
+        console.log("Async/Await OK:", res);
+      } catch (e) {
+        console.error("Async/Await lỗi:", e.message);
+      }
+    })();
+  </script>
+</body>
+</html>
